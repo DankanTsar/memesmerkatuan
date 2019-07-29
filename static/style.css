@@ -1,0 +1,10 @@
+img{
+    display: block;
+}
+.index-img{
+    width: 50%;
+    margin: auto;
+}
+.hidden{
+    display:none;
+}

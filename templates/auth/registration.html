@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="card mt-3">
+    <header class="card-header bg-primary">
+        <h2 class="card-title">Регистрация</h2>
+    </header>
+    <form class="card-body" action="" method="post">
+        {{form.hidden_tag()}}
+        <div class="form-group">
+                <label class="my-1">{{ form.username_reg.label}}</label>
+                {{ form.username_reg(class=("form-control is-invalid" if form.username_reg.errors else "form-control")) }}
+                <div class="invalid-feedback">
+                {% if form.username_reg.errors %}
+                        {{ form.username_reg.errors[0] }}
+                {% endif %}
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="my-1">{{ form.email_reg.label}}</label>
+                {{ form.email_reg(class=("form-control is-invalid" if form.email_reg.errors else "form-control")) }}
+                <div class="invalid-feedback">
+                {% if form.email_reg.errors %}
+                        {{ form.email_reg.errors[0] }}
+                {% endif %}
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="my-1">{{ form.password_reg.label}}</label>
+                {{ form.password_reg(class=("form-control is-invalid" if form.password_reg.errors else "form-control")) }}
+                <div class="invalid-feedback">
+                {% if form.password_reg.errors %}
+                        {{ form.password_reg.errors[0] }}
+                {% endif %}
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="my-1">{{ form.confirm_reg.label}}</label>
+                {{ form.confirm_reg(class=("form-control is-invalid" if form.confirm_reg.errors else "form-control")) }}
+                <div class="invalid-feedback">
+                {% if form.confirm_reg.errors %}
+                        {{ form.confirm_reg.errors[0] }}
+                {% endif %}
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="my-1">{{ form.pubkey_reg.label}}</label>
+                {{ form.pubkey_reg(class=("form-control is-invalid" if  form.pubkey_reg.errors else "form-control")) }}
+                <div class="invalid-feedback">
+                {% if form.pubkey_reg.errors %}
+                        {{ form.pubkey_reg.errors[0] }}
+                {% endif %}
+                </div>
+        </div>
+        <div class="form-group">
+                <label class="my-1">{{  form.privkey_reg.label}}</label>
+                {{  form.privkey_reg(class=("form-control is-invalid" if form.privkey_reg.errors else "form-control")) }}
+                <div class="invalid-feedback">
+                {% if  form.privkey_reg.errors %}
+                        {{  form.privkey_reg.errors[0] }}
+                {% endif %}
+                </div>
+        </div>
+       {{ form.submit_reg(class="btn btn-block btn-primary") }}
+    </form>
+</div>
+{% endblock content %}

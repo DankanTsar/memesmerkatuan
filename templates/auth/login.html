@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card mt-5">
+    <header class="card-header bg-primary">
+        <h2 class="card-title my-3">Вход</h2>
+    </header> 
+        <form class="card-body" action="" method="post">
+        {{form.hidden_tag()}}
+            <div class="form-group">
+                <label class="my-1">{{ form.username_log.label}}</label>
+                {{ form.username_log(class=("form-control is-invalid" if form.username_log.errors else "form-control")) }}
+                <div class="invalid-feedback">
+                {% if form.username_log.errors %}
+                        {{ form.username_log.errors[0] }}
+                {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                    <label class="my-1">{{ form.password_log.label}}</label>
+                    {{ form.password_log(class=("form-control is-invalid" if form.password_log.errors else "form-control")) }}
+                    <div class="invalid-feedback">
+                    {% if form.password_log.errors %}
+                            {{ form.password_log.errors[0] }}
+                    {% endif %}
+                    </div>
+                </div>
+            {% if msg %}
+                <div class="alert alert-danger">{{ msg }}</span>
+            {% endif %}
+            {{ form.submit_log(class="btn btn-primary btn-block mt-3") }}
+            <div class="mt-1"><i><a href="{{url_for('reg')}}">Нет профиля?</a></i></div>
+        </form>
+    </div>
+{% endblock content %}
